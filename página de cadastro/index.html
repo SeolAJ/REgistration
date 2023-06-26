@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Cadastro</title>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+        <link rel="stylesheet" href="./assets/css/style.css"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+    </head>
+
+    <body>
+        <main>
+            <div class="card rounded p-5 mb-3 bg-primary   position-absolute top-50 start-50 translate-middle text-center shadow-1-strong rounded mb-3 text-white" 
+                class="rounded p-5  mb-3 bg-primary text-light" font="custom-font"
+                style="
+                        min-width: 19rem;
+                        min-width: 19rem;
+                        background-image: url('assets/background/onda_sakura.png');
+                        .custom-font {
+                        font-family: 'Arial', sans-serif;}">
+                        
+                <div class="card-header">
+                    <spam>
+                        <h1  style="color:rgb(97, 97, 155);">Atividade</h1>
+                    </spam>
+                </div>
+                <div class="card-body">
+                    <div class="container-flex w-100 p-1 m-1 mx-auto border border-success-subtle">
+                        <h2 class="titulo" style="color: rgb(97, 97, 155);">Criando uma nova conta</h2>
+                        <form id="cadastro-form">
+                            <div class="row-sm-12">
+                                <div class="col-mb-2">
+                                    <label for="nomeCompleto" class="form-label" style="color: palevioletred;">Nome Completo:</label>
+                                    <input type="text" class="form-control" id="nomeCompleto" name="nomeCompleto" placeholder="Digite seu nome completo"/>
+                                </div>
+                                <div class="col-mb-2">
+                                    <label for="email" class="form-label" style="color: palevioletred;">E-mail:</label>
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Digite seu e-mail"/>
+                                </div>
+                                <div class="col-mb-2">
+                                    <label for="telefone" class="form-label" style="color: palevioletred;">Telefone:</label>
+                                    <input type="text" class="form-control" id="telefone" name="telefone" placeholder="Digite seu telefone"/>
+                                </div>
+                                <div class="col-mb-2">
+                                    <label for="cpf" class="form-label" style="color: palevioletred;">CPF:</label>
+                                    <input type="text" class="form-control" id="cpf" name="cpf" placeholder="Digite seu CPF"/>
+                                </div>
+                                <div class="col-mb-2">
+                                    <label for="endereco" class="form-label" style="color: palevioletred;">Endereço:</label>
+                                    <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Digite seu endereço"/>
+                                </div>
+                                <div class="col-mb-2">
+                                    <label for="cep" class="form-label" style="color: palevioletred";>CEP:</label>
+                                    <input type="text" class="form-control" id="cep" name="cep" placeholder="Digite seu CEP"/>
+                                    <div class="container-flex m-3">
+                                        <div class="row">
+                                            <div class="form-check col-6">
+                                                <input type="checkbox" class="form-check-input" id="lembrar" name="lembrar"/>
+                                                <label class="form-check-label" for="lembrar" style="color: rgb(12, 10, 10)   ;">Lembrar</label>
+                                            </div>
+                                            <div class="form-check col-6">
+                                                <input type="checkbox" class="form-check-input" id="newsletter" name="newsletter"/>
+                                                <label class="form-check-label" for="newsletter" style="color: rgb(12, 10, 10);">Inscrever-me no newsletter</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary">Registrar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+        <script>
+            $(document).ready(function () { 
+                $('#telefone').mask('(99) 9999-9999');
+
+                
+                $('#cpf').mask('999.999.999-99');
+
+                
+                $('#cadastro-form').validate({
+                    rules: {
+                        nomeCompleto: 'required',
+                        email: {
+                            required: true,
+                            email: true
+                        },
+                        telefone: 'required',
+                        cpf: 'required',
+                        endereco: 'required',
+                        cep: 'required'
+                    },
+                    messages: {
+                        nomeCompleto: 'Por favor, digite seu nome completo',
+                        email: {
+                            required: 'Por favor, digite seu e-mail',
+                            email: 'Por favor, digite um e-mail válido'
+                        },
+                        telefone: 'Por favor, digite seu telefone',
+                        cpf: 'Por favor, digite seu CPF',
+                        endereco: 'Por favor, digite seu endereço',
+                        cep: 'Por favor, digite seu CEP'
+                    },
+                    submitHandler: function (form) { 
+                        form.submit();
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
